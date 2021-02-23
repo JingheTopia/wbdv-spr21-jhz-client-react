@@ -1,0 +1,99 @@
+body {
+    font-family: "Arial", sans-serif;
+    background-color: ghostwhite;
+}
+
+.nav-top{
+    background-color: dimgrey;
+}
+
+
+.list-title-col {
+    font-size: medium;
+    width: 40%;
+    color: #929292;
+    text-align: left;
+}
+
+.list-title-col-1 {
+    font-size: medium;
+    width: 30%;
+    color: #929292;
+    text-align: left;
+}
+
+.list-title-col-content {
+    font-size: small;
+    width: 40%;
+    color: #929292;
+    text-align: left;
+}
+
+.list-title-col-content-1 {
+    font-size: small;
+    width: 30%;
+    color: #929292;
+    text-align: left;
+}
+
+
+.icon-col {
+    font-size: medium;
+    width: 1%;
+    color: #929292;
+}
+
+.nav-item a {
+    font-size: medium;
+    color: lightgray;
+}
+
+.list-title-col-content a {
+    color: #111111;
+}
+
+
+.home-container {
+    margin: 0;
+}
+
+.icon-container {
+    margin-right: 1%;
+}
+
+.nav-icon {
+    color: #FFFFFF;
+}
+
+.nav-brand{
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+.table {
+    margin: 0;
+    padding: 0;
+}
+.table-content {
+    margin: 0;
+    padding: 0;
+    border-collapse: collapse;
+    border: 1px solid #929292;
+    background-color: #FFFFFF;
+
+}
+.line {
+    margin: 0;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+.nav-item a:hover {
+    color: #f1f1f1;
+}
+.nav-item a:active {
+    color: #FFFFFF;
+}
+
+
