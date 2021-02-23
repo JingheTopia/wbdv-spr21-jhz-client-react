@@ -1,0 +1,46 @@
+body {
+    font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+    height: 100%;
+    position: fixed;
+    width: 23%;
+    z-index: 2;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.nav-item a {
+    font-size: medium;
+    color: lightgray;
+}
+
+.topic-btn {
+    margin-right: 2%;
+}
+.home-container {
+    margin: 0;
+}
+
+.navbtn {
+    font-size: medium;
+}
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+.nav-item a:hover {
+    color: #f1f1f1;
+}
+.nav-item a:active {
+    color: #FFFFFF;
+}
+
+.nav-back {
+    color: #FFFFFF;
+}
+
+.nav-link a:hover {
+    color: #f1f1f1;
+}
