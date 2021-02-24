@@ -19,7 +19,7 @@ export default class CourseTable
                       <table className="table">
                           <tr>
                               <th scope="col"
-                                  className="list-title-col d-xs-table-cell">Title
+                                  className="list-title-col d-lg-table-cell">Title
                               </th>
                               <th scope="col"
                                   className="list-title-col-1 d-none d-md-table-cell">Owned By
