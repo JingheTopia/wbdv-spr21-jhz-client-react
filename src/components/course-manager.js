@@ -10,8 +10,14 @@ import './course-manager-style.css';
 class CourseManager extends React.Component {
   state = {
     courses: [],
+    initialCourse : {
       title: "New Course",
+      owner: "me",
+      lastModified: new Date().toLocaleDateString()
+    },
+    title : "New Course"
   }
+
 
   updateCourse = (course) => {
     console.log(course)
@@ -29,11 +35,8 @@ class CourseManager extends React.Component {
 
   addCourse = () => {
 
-    let newCourse = {
-        title: this.state.title,
-        owner: "me",
-        lastModified: new Date().toLocaleDateString()
-    }
+    let newCourse = {...this.state.initialCourse}
+    newCourse["title"] = this.state.title;
     courseService.createCourse(newCourse)
         .then(course => {this.setState(
             (prevState) => ({
@@ -44,8 +47,7 @@ class CourseManager extends React.Component {
               ]
             }))
         })
-
-      this.state.title = "New Course"
+      this.setState({title: 'New Course'});
       document.getElementById('wbdv-form').reset()
   }
 
