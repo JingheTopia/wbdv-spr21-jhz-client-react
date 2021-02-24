@@ -22,7 +22,7 @@ const CourseRow = (
       <div className="container-fluid">
       <div className="col-12 mx-auto table-container">
           <tr>
-            <td>
+            <td className={"list-title-col d-lg-table-cell"} >
                 <i className="far fa-file-alt col-md-auto text-primary"/>
                 {
                     !editing &&
