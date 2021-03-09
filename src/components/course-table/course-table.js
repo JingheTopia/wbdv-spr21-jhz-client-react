@@ -7,7 +7,6 @@ export default class CourseTable
 
   constructor(props) {
     super(props)
-    console.log(props)
   }
 
   render() {
@@ -63,6 +62,7 @@ export default class CourseTable
                 title={course.title}
                 owner={course.owner}
                 lastModified={course.lastModified}
+                layout = {this.props.layout}
               />)
           }
           </tbody>

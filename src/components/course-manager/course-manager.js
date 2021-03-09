@@ -1,9 +1,9 @@
 import React, {useState} from 'react'
-import CourseTable from "./course-table";
-import CourseGrid from "./course-grid";
-import CourseEditor from "./course-editor";
+import CourseTable from "../course-table/course-table";
+import CourseGrid from "../course-grid/course-grid";
+import CourseEditor from "../course-editor/course-editor";
 import {Link, Route} from "react-router-dom";
-import courseService, {findAllCourses, deleteCourse} from "../services/course-service";
+import courseService, {findAllCourses, deleteCourse} from "../../services/course-service";
 import './course-manager-style.css';
 
 
@@ -15,7 +15,12 @@ class CourseManager extends React.Component {
       owner: "me",
       lastModified: new Date().toLocaleDateString()
     },
-    title : "New Course"
+    title : "New Course",
+
+    layout : {
+      table : "table",
+      gird: "grid"
+    }
   }
 
 
@@ -34,7 +39,6 @@ class CourseManager extends React.Component {
         .then(courses => this.setState({courses}))
 
   addCourse = () => {
-
     let newCourse = {...this.state.initialCourse}
     newCourse["title"] = this.state.title;
     courseService.createCourse(newCourse)
@@ -65,6 +69,8 @@ class CourseManager extends React.Component {
 
   render() {
     return(
+        <div>
+        <Route path={["/courses/table", "/courses/grid"]} exact={true}>
       <div>
           <div className="home-container">
               <nav className="navbar navbar-expand-lg navbar-dark sticky-top nav-top">
@@ -100,23 +106,20 @@ class CourseManager extends React.Component {
                   </form>
               </nav>
           </div>
-
         <Route path="/courses/table">
           <CourseTable
               updateCourse={this.updateCourse}
               deleteCourse={this.deleteCourse}
-              courses={this.state.courses}/>
+              courses={this.state.courses}
+              layout = {this.state.layout.table}/>
         </Route>
         <Route path="/courses/grid">
           <CourseGrid
               updateCourse={this.updateCourse}
               deleteCourse={this.deleteCourse}
-              courses={this.state.courses}/>
+              courses={this.state.courses}
+              layout = {this.state.layout.gird}/>
         </Route>
-
-          {/*<Route path="/courses/editor"*/}
-          {/*       render={(props) => <CourseEditor {...props}/>}>*/}
-          {/*</Route>*/}
 
           <div className="float-md-right" style={{marginRight: "5%"}}>
               <i onClick={this.addCourse}
@@ -124,6 +127,17 @@ class CourseManager extends React.Component {
                  style={{color: 'red'}}/>
           </div>
        </div>
+    </Route>
+      <Route path={[
+          "/courses/:layout/edit/:courseId",
+          "/courses/:layout/edit/:courseId/modules/:moduleId",
+          "/courses/:layout/edit/:courseId/modules/:moduleId/lessons/:lessonId",
+          "/courses/:layout/edit/:courseId/modules/:moduleId/lessons/:lessonId/topics/:topicId"]}
+             exact={true}
+             render={(props) => <CourseEditor {...props}/>}>
+      </Route>
+    </div>
+
     )
   }
 }

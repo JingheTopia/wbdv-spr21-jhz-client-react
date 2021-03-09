@@ -2,7 +2,7 @@ import React from 'react'
 import CourseCard from "./course-card";
 import {Link} from "react-router-dom";
 
-const CourseGrid = ({courses, updateCourse, deleteCourse}) =>
+const CourseGrid = ({courses, updateCourse, deleteCourse, layout}) =>
   <div>
       <nav className="navbar navbar-expand-lg bg-light sticky-top">
           <div className="container-fluid">
@@ -54,6 +54,7 @@ const CourseGrid = ({courses, updateCourse, deleteCourse}) =>
                 course={course}
                 updateCourse={updateCourse}
                 deleteCourse={deleteCourse}
+                layout = {layout}
             />
         )
     }

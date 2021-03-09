@@ -5,6 +5,7 @@ const CourseRow = (
     {   deleteCourse,
         updateCourse,
         course,
+        layout
     }) => {
     const [editing, setEditing] = useState(false)
     const [title, setTitle] = useState(course.title)
@@ -26,7 +27,7 @@ const CourseRow = (
                 <i className="far fa-file-alt col-md-auto text-primary"/>
                 {
                     !editing &&
-                    <Link to="/editor">
+                    <Link to={`/courses/${layout}/edit/${course._id}`}>
                         {course.title}
                     </Link>
                 }

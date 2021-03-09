@@ -1,0 +1,74 @@
+body {
+    font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+    height: 100%;
+    position: fixed;
+    width: 23%;
+    z-index: 2;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.nav-item {
+    font-size: medium;
+    padding-right: 1%;
+    padding-left: 1%;
+    padding-top: 1%;
+}
+
+.lesson-btn {
+    margin-right: 2%;
+    margin-bottom: 2%;
+}
+
+.top-btn {
+    margin-right: 2%;
+    margin-bottom: 2%;
+}
+
+.home-container {
+    margin: 0;
+}
+
+.navbtn {
+    font-size: medium;
+}
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+.nav-item :hover {
+    color: blue;
+}
+.nav-item :active {
+    color: blue;
+}
+
+.nav-item {
+    margin-right: 2%;
+}
+.nav-back {
+    color: #FFFFFF;
+}
+
+.h3 {
+    margin-left: 5%;
+}
+.topic-pills {
+}
+
+.lesson-tabs {
+    margin-bottom: 2%;
+}
+
+
+.h5 {
+    color: mediumblue;
+}
+
+.list-group-item {
+    margin-right: 1.5%;
+    margin-bottom: 2%;
+}

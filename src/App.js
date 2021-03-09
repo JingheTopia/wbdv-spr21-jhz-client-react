@@ -1,7 +1,7 @@
-import CourseManager from "./components/course-manager";
+import CourseManager from "./components/course-manager/course-manager";
 import {BrowserRouter, Route} from "react-router-dom";
 import Home from "./components/home"
-import CourseEditor from "./components/course-editor";
+import CourseEditor from "./components/course-editor/course-editor";
 
 function App() {
   return (
@@ -9,7 +9,7 @@ function App() {
         <div className="container-fluid">
             <Route path="/" exact={true}  component={Home}/>
             <Route path="/courses" component={CourseManager}/>
-            <Route path="/editor" exact={true} render={(props) => <CourseEditor {...props}/>}/>
+            {/*<Route path="/editor" exact={true} render={(props) => <CourseEditor {...props}/>}/>*/}
         </div>
       </BrowserRouter>
   );
