@@ -7,14 +7,19 @@ import {Provider} from "react-redux";
 import moduleReducer from "../../reducers/modules-reducer";
 import lessonReducer from "../../reducers/lesson-reducer";
 import topicReducer from "../../reducers/topic-reducer";
+import widgetReducer from "../../reducers/widget-reducer";
+
 import courseService from "../../services/course-service"
 import LessonTabs from "./lesson-tabs";
 import ModuleList from "../course-editor/module-list";
 import TopicPills from "./topic-pills";
+import WidgetList from "../widgets/widget-list";
+
 const reducer = combineReducers({
     moduleReducer: moduleReducer,
     lessonReducer: lessonReducer,
-    topicReducer : topicReducer
+    topicReducer : topicReducer,
+    widgetReducer : widgetReducer
 })
 
 const store = createStore(reducer)
@@ -60,6 +65,11 @@ const CourseEditor = ({history}) => {
                         <div className={"container-fluid topic-pills"}>
                             <TopicPills/></div>
                         </div>
+                    <br/>
+                    <div className={"row"}>
+                        <div className={"container-fluid topic-pills"}>
+                            <WidgetList/></div>
+                    </div>
                 </div>
             </div>
 

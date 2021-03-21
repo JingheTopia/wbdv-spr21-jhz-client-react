@@ -22,8 +22,8 @@ const TopicPills = ({
     } else {
       cleanTopics()
     }
-    lessonService.findLesson(lessonId).then(actualLesson => {
-      setTopicTitle(actualLesson.title)})
+    // lessonService.findLesson(lessonId).then(actualLesson => {
+    //   setTopicTitle(actualLesson.title)})
   }, [moduleId, lessonId])
 
   return (
