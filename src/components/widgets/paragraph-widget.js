@@ -58,7 +58,7 @@ const HeadingWidget = ({
                 !editing &&
                     <div className={`row ${active?'active':''} `}>
                         {
-                            <Link className={"p"} to={to}>
+                            <Link className={"p"} style={{ textDecoration: 'none' }} to={to}>
                                 <p>
                                     {widget.text}
                                 </p>

@@ -79,37 +79,37 @@ const HeadingWidget = ({
                 !editing &&
                     <div className={`row ${active?'active':''} `}>
                         {widget.size === 1 &&
-                        <Link className={"h1"} to={to}>
+                        <Link className={"h1 heading-link"}style={{ textDecoration: 'none' }} to={to}>
                             {widget.text}
                         </Link>
                         }
 
                         {widget.size === 2 &&
-                        <Link className={"h2"} to={to}>
+                        <Link className={"h2 heading-link"} style={{ textDecoration: 'none' }} to={to}>
                             {widget.text}
                         </Link>
                         }
 
                         {widget.size === 3 &&
-                        <Link className={"h3"} to={to}>
+                        <Link className={"h3 heading-link"} style={{ textDecoration: 'none' }} to={to}>
                             {widget.text}
                         </Link>
                         }
 
                         {widget.size === 4 &&
-                        <Link className={"h4"} to={to}>
+                        <Link className={"h4 heading-link"} style={{ textDecoration: 'none' }} to={to}>
                             {widget.text}
                         </Link>
                         }
 
                         {widget.size === 5 &&
-                        <Link className={"h5"} to={to}>
+                        <Link className={"h5 heading-link"} style={{ textDecoration: 'none' }} to={to}>
                             {widget.text}
                         </Link>
                         }
 
                         {widget.size === 6 &&
-                        <Link className={"h6"} to={to}>
+                        <Link className={"h6"} style={{ textDecoration: 'none' }} to={to}>
                             {widget.text}
                         </Link>
                         }
