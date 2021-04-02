@@ -1,9 +1,7 @@
 import React, {useState} from 'react'
-import {Link} from "react-router-dom";
 
 
-// <textarea value={widget.text} className="form-control"></textarea>
-const ParagraphWidget = ({
+const ListWidget = ({
             to = "/",
             widget,
             active,
@@ -16,8 +14,8 @@ const ParagraphWidget = ({
         <>
             {
                 editing &&
-                    <div className={"row"}>
-
+                    <div >
+                        <div className={"row"}>
                         <select
                             onChange={(e) =>
                                 setCachedItem({
@@ -32,7 +30,16 @@ const ParagraphWidget = ({
                             <option value={"HYPERLINK"}>Hyperlink</option>
                             <option value={"VIDEO"}>Video</option>
                         </select>
-
+                        <input checked={cachedItem.ordered}
+                               type="checkbox"
+                               onChange={(e)=>{
+                                   setCachedItem(widgetCache=>({...widgetCache, ordered:e.target.checked}))
+                               }}
+                        /> Ordered
+                        <br/>
+                        </div>
+                        <div className={"row"}>
+                        List Items
                         <textarea className="form-control"
                             onChange={(e) =>
                                 setCachedItem({
@@ -41,7 +48,7 @@ const ParagraphWidget = ({
                                 })}
                             value={cachedItem.text}
                             placeholder={widget.text}
-                        />
+                        >Item list</textarea>
 
                         <i onClick={() => {
                             setEditing(false)
@@ -53,16 +60,41 @@ const ParagraphWidget = ({
                             setEditing(false)
                         }} className="fas fa-trash float-right"/>
                     </div>
+                    </div>
             }
             {
                 !editing &&
-                    <div className={`row ${active?'active':''} `}>
+                    <div >
                         {
-                            <Link className={"p"} style={{ textDecoration: 'none' }} to={to}>
-                                <p>
-                                    {widget.text}
-                                </p>
-                            </Link>
+                            cachedItem.ordered &&
+                            <>
+                                <ol>
+                                    {
+                                        cachedItem.text.split("\n").map((item) => {
+                                            return(
+                                                <li>
+                                                    {item}
+                                                </li>
+                                            )
+                                        })
+                                    }
+                                </ol>
+                            </>
+
+                        }
+                        {
+                            !cachedItem.ordered &&
+                            <ul>
+                                {
+                                    cachedItem.text.split("\n").map((item) => {
+                                        return(
+                                            <li>
+                                                {item}
+                                            </li>
+                                        )
+                                    })
+                                }
+                            </ul>
                         }
 
                         <i onClick={() => {
@@ -75,4 +107,4 @@ const ParagraphWidget = ({
     )
 }
 
-export default ParagraphWidget
+export default ListWidget

@@ -1,9 +1,7 @@
 import React, {useState} from 'react'
 import {Link} from "react-router-dom";
 
-
-// <textarea value={widget.text} className="form-control"></textarea>
-const ParagraphWidget = ({
+const ImageWidget = ({
             to = "/",
             widget,
             active,
@@ -12,18 +10,43 @@ const ParagraphWidget = ({
 {
     const [editing, setEditing] = useState(false)
     const [cachedItem, setCachedItem] = useState(widget)
+
+
     return(
-        <>
+        <div>
+            {/*<h2>{widget.id}</h2>*/}
+
             {
                 editing &&
-                    <div className={"row"}>
+                    <div>
+                        Image URL
+                        <input value={cachedItem.url}
+                               onChange={(e)=>{
+                                   setCachedItem(widgetCache=>({...widgetCache, url:e.target.value}))
+                               }}
+                               className="form-control"
+                        />
+                        Image Width
+                        <input value={cachedItem.width}
+                               className="form-control"
+                               onChange={(e)=>{
+                                   setCachedItem(widgetCache=>({...widgetCache, width:e.target.value}))
+                               }}
+                        />
+                        Image Height
+                        <input value={cachedItem.height}
+                               className="form-control"
+                               onChange={(e)=>{
+                                   setCachedItem(widgetCache=>({...widgetCache, height:e.target.value}))
+                               }}
+                        />
 
                         <select
-                            onChange={(e) =>
+                            onChange={(e) => {
                                 setCachedItem({
                                     ...cachedItem,
                                     type: e.target.value
-                                })}
+                                })}}
                             value={cachedItem.type} className="form-control">
                             <option value={"HEADING"}>Heading</option>
                             <option value={"PARAGRAPH"}>Paragraph</option>
@@ -33,15 +56,6 @@ const ParagraphWidget = ({
                             <option value={"VIDEO"}>Video</option>
                         </select>
 
-                        <textarea className="form-control"
-                            onChange={(e) =>
-                                setCachedItem({
-                                    ...cachedItem,
-                                    text: e.target.value
-                                })}
-                            value={cachedItem.text}
-                            placeholder={widget.text}
-                        />
 
                         <i onClick={() => {
                             setEditing(false)
@@ -56,14 +70,8 @@ const ParagraphWidget = ({
             }
             {
                 !editing &&
-                    <div className={`row ${active?'active':''} `}>
-                        {
-                            <Link className={"p"} style={{ textDecoration: 'none' }} to={to}>
-                                <p>
-                                    {widget.text}
-                                </p>
-                            </Link>
-                        }
+                    <div >
+                        <img width={cachedItem.width} height={cachedItem.height} src={cachedItem.url}/>
 
                         <i onClick={() => {
                             setEditing(true)
@@ -71,8 +79,8 @@ const ParagraphWidget = ({
                         } className="fas fa-cog"/>
                     </div>
             }
-        </>
+        </div>
     )
 }
 
-export default ParagraphWidget
+export default ImageWidget

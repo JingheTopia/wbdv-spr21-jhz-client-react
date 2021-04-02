@@ -1,6 +1,6 @@
 
-const TOPIC_URL = "https://wbdv-course-manager-jh.herokuapp.com/api/topics";
-const WIDGETS_URL = "https://wbdv-course-manager-jh.herokuapp.com/api/widgets";
+const TOPIC_URL = "http://localhost:8080/api/topics";
+const WIDGETS_URL = "http://localhost:8080/api/widgets";
 
 const createWidgetForTopic = (topicId, widget) => {
     console.log("topic is:", topicId)

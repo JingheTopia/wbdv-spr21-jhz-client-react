@@ -1,10 +1,11 @@
 import {useParams} from "react-router-dom";
 import React, {useEffect, useState} from "react";
 import {connect} from "react-redux";
-import EditableItem from "../editable-item";
 import widgetService from "../../services/widget-service"
 import HeadingWidget from "./heading-widget";
 import ParagraphWidget from "./paragraph-widget";
+import ListWidget from "./list-widget";
+import ImageWidget from "./image-widget";
 
 const WidgetList = ({
     widgets=[],
@@ -48,6 +49,25 @@ const WidgetList = ({
                           {
                               widget.type == "PARAGRAPH" &&
                               <ParagraphWidget
+                                  to={`/courses/${layout}/edit/${courseId}/modules/${moduleId}/lessons/${lessonId}/topics/${topicId}/widgets/${widget.id}`}
+                                  widget={widget}
+                                  updateItem={updateWidget}
+                                  deleteItem={deleteWidget}
+                                  active={widget.id == widgetId}/>
+                          }
+                          {
+                              widget.type == "LIST" &&
+                              <ListWidget
+                                  to={`/courses/${layout}/edit/${courseId}/modules/${moduleId}/lessons/${lessonId}/topics/${topicId}/widgets/${widget.id}`}
+                                  widget={widget}
+                                  updateItem={updateWidget}
+                                  deleteItem={deleteWidget}
+                                  active={widget.id == widgetId}/>
+                          }
+
+                          {
+                              widget.type == "IMAGE" &&
+                              <ImageWidget
                                   to={`/courses/${layout}/edit/${courseId}/modules/${moduleId}/lessons/${lessonId}/topics/${topicId}/widgets/${widget.id}`}
                                   widget={widget}
                                   updateItem={updateWidget}
