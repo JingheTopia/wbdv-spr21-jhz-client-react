@@ -26,6 +26,7 @@ export default class CourseTable
                               <th scope="col"
                                   className=" list-title-col-1 d-none d-lg-table-cell">Last modified by me
                               </th>
+                              <td> </td>
                               <th scope="col"
                                   className="icon-col">
                                   <a href="#">

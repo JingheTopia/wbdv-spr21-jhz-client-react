@@ -41,7 +41,11 @@ const CourseRow = (
             </td>
             <td class="list-title-col-content-1 d-none d-md-table-cell" >{course.owner}</td>
             <td class="list-title-col-content-1 d-none d-lg-table-cell" >{course.lastModified}</td>
-
+              <td>
+                  <Link  to={`/courses/${course._id}/quizzes`}>
+                      Quizzes
+                  </Link>
+              </td>
               <td className="icon-col">
                   {!editing && <i onClick={() => setEditing(true)} className="fas fa-edit"/>}
                   {editing && <i onClick={() => saveTitle()} className="fas fa-check"/>}
