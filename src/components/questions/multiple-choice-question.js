@@ -1,8 +1,11 @@
 import React, {useState, useEffect} from 'react';
 
-const MultipleChoiceQuestion = ({question}) => {
+const MultipleChoiceQuestion = (
+    {question,
+        grade,
+    updateQuestion}) => {
     const [yourAnswer, setYourAnswer] = useState('');
-    const [grade, setGrade] = useState(false);
+    // const [grade, setGrade] = useState(false);
 
     return (
         <div>
@@ -115,6 +118,10 @@ const MultipleChoiceQuestion = ({question}) => {
                                            className=''
                                            onClick={() => {
                                                setYourAnswer(choice)
+                                               updateQuestion({
+                                                   ...question,
+                                                   answer : choice
+                                               })
                                            }}
                                            name={question._id}/> {choice}
                                 </lable>
@@ -126,16 +133,16 @@ const MultipleChoiceQuestion = ({question}) => {
             <p>
                 Your answer: {yourAnswer}
             </p>
-            <button type="button"
-                    class="btn btn-success"
-                    onClick={() => {
-                        if (yourAnswer === '') {
-                            alert('Please select an option.')
-                        } else {
-                            setGrade(true) // only allow select answer for once
-                        }
-                    }}
-            >Grade</button>
+            {/*<button type="button"*/}
+            {/*        class="btn btn-success"*/}
+            {/*        onClick={() => {*/}
+            {/*            if (yourAnswer === '') {*/}
+            {/*                alert('Please select an option.')*/}
+            {/*            } else {*/}
+            {/*                setGrade(true) // only allow select answer for once*/}
+            {/*            }*/}
+            {/*        }}*/}
+            {/*>Grade</button>*/}
             <hr/>
         </div>
     )

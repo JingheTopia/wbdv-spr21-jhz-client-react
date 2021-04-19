@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
 
-const TrueFalseQuestion = ({question}) => {
+const TrueFalseQuestion = (
+    {question, updateQuestion, grade}) => {
     const [yourAnswer, setYourAnswer] = useState('');
-    const [grade, setGrade] = useState(false);
+    // const [grade, setGrade] = useState(false);
 
     return (
         <div>
@@ -36,6 +37,16 @@ const TrueFalseQuestion = ({question}) => {
                                        className=''
                                        onClick={() => {
                                            setYourAnswer('true')
+                                           // let updatedQuestion = {
+                                           //     ...question,
+                                           //     answer : "true"
+                                           // }
+                                           // console.log("updated question is:" , updatedQuestion)
+
+                                           updateQuestion({
+                                               ...question,
+                                               answer : "true"
+                                           })
                                        }}
                                        name={question._id}/> TRUE
                             </lable>
@@ -46,6 +57,16 @@ const TrueFalseQuestion = ({question}) => {
                                        className=''
                                        onClick={() => {
                                            setYourAnswer('false')
+                                           // let updatedQuestion = {
+                                           //     ...question,
+                                           //     answer : "false"
+                                           // }
+                                           // console.log("updated question is:" , updatedQuestion)
+
+                                           updateQuestion({
+                                               ...question,
+                                               answer : "false"
+                                           })
                                        }}
                                        name={question._id}/> FALSE
                             </lable>
@@ -173,17 +194,17 @@ const TrueFalseQuestion = ({question}) => {
                 Your answer: {yourAnswer}
             </p>
 
-            <button type="button"
-                    className="btn btn-success"
-                    onClick={() => {
-                        if (yourAnswer === '') {
-                            alert('Please select one option.')
-                        } else {
-                            setGrade(true)
-                        }
-                    }}
-            >Grade</button>
-            <hr/>
+            {/*<button type="button"*/}
+            {/*        className="btn btn-success"*/}
+            {/*        onClick={() => {*/}
+            {/*            if (yourAnswer === '') {*/}
+            {/*                alert('Please select one option.')*/}
+            {/*            } else {*/}
+            {/*                setGrade(true)*/}
+            {/*            }*/}
+            {/*        }}*/}
+            {/*>Grade</button>*/}
+            {/*<hr/>*/}
         </div>
     )
 

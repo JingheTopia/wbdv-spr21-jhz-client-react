@@ -7,8 +7,12 @@ import Quiz from "./components/quizzes/quiz"
 import {Provider} from "react-redux";
 import {combineReducers, createStore} from "redux";
 import quizReducer from "./reducers/quiz-reducer";
+import quizAttemptsReducer from "./reducers/quizzes-reducer";
 
-const reducer = combineReducers({quizReducer: quizReducer})
+const reducer = combineReducers({
+    quizReducer: quizReducer,
+    quizAttemptsReducer : quizAttemptsReducer
+})
 
 const store = createStore(reducer)
 
